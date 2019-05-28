@@ -5,6 +5,7 @@
  */
 package com.mycompany;
 
+import static jdk.nashorn.internal.objects.Global.Infinity;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -26,4 +27,9 @@ public class AssertTest {
                1d / 3 + 1d / 3 + 1d / 3,
                1e-10);
    }
+   
+    @Test(expected = ArithmeticException.class)
+    public void zero_division() {
+        assertEquals(10/0, 5);
+    }
 }

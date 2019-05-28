@@ -5,6 +5,7 @@
  */
 package com.mycompany;
 
+import static jdk.nashorn.internal.objects.Global.Infinity;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,5 +53,11 @@ public class CalculatorImpTest {
     public void functionTest() throws Exception {
         double result = calculator.calculate("sin(1)*sin(1)+cos(1)*cos(1)");
         assertEquals(1, result, 1e-9);
+    }
+    
+    @Test
+        public void zeroDivision() throws Exception {
+        double result = calculator.calculate("10/0");
+        assertEquals(Infinity, result, 1e-9);
     }
 }
